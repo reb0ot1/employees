@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="db15f4cc-2e78-49de-b2ba-6bccbada11aa" name="ENEL" url="http://91.215.216.28">
+        <fileTransfer host="91.215.216.28" port="21" rootFolder="/public_html/ENEL2017">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
