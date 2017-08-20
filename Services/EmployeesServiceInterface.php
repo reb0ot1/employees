@@ -9,9 +9,12 @@
 namespace Employees\Services;
 
 
+use Employees\Models\Binding\Emp\EmpBindingModel;
+
 interface EmployeesServiceInterface
 {
 
     public function getList();
 
+    public function addEmp(EmpBindingModel $model);
 }

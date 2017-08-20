@@ -10,6 +10,7 @@ namespace Employees\Services;
 
 
 use Employees\Adapter\DatabaseInterface;
+use Employees\Models\Binding\Emp\EmpBindingModel;
 
 class EmployeesService implements EmployeesServiceInterface
 {
@@ -32,5 +33,34 @@ class EmployeesService implements EmployeesServiceInterface
 
         return $result;
     }
+
+    public function addEmp(EmpBindingModel $model)
+    {
+        $query = "INSERT INTO
+                  employees (
+                  ext_id,
+                  first_name,
+                  last_name,
+                  position,
+                  teamm,
+                  start_date,
+                  birthday
+                  )
+                  VALUES(?,?,?,?,?,?,?)";
+
+        $stmt = $this->db->prepare($query);
+
+        return $stmt->execute([
+            $model->getExtId(),
+            $model->getFirstName(),
+            $model->getLastName(),
+            $model->getPosition(),
+            $model->getTeam(),
+            $model->getStartDate(),
+            $model->getBirthday()
+        ]);
+
+    }
+
 
 }
