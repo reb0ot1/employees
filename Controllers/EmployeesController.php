@@ -2,12 +2,12 @@
 
 namespace Employees\Controllers;
 
+
+use Employees\Models\Binding\Emp\EmpBindingModel;
 use Employees\Services\EmployeesServiceInterface;
 
 class EmployeesController
 {
-
-    private $employeeService;
 
     public function __construct(EmployeesServiceInterface $employeesService)
     {
@@ -17,6 +17,19 @@ class EmployeesController
     public function list()
     {
         echo(json_encode($this->employeeService->getList()));
+    }
+
+    public function addemployee(EmpBindingModel $employeeBindingModel)
+    {
+        if  ($this->employeeService->addEmp($employeeBindingModel)) {
+            echo "true";
+        } else {
+            echo "false";
+        }
+    }
+
+    public function updateEmp() {
+
     }
 
 }
