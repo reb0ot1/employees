@@ -24,11 +24,21 @@ class EmployeesService implements EmployeesServiceInterface
 
     public function getList()
     {
-        $query = "SELECT * FROM employees_details";
+        $query = "SELECT * FROM employees";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function getEmp($id) {
+        $query = "SELECT * FROM employees WHERE id = ?";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([$id]);
         $result = $stmt->fetchAll();
 
         return $result;

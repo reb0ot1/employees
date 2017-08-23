@@ -28,7 +28,13 @@ class EmployeesController
         }
     }
 
-    public function updateEmp() {
+    public function getemployee($id) {
+
+        echo json_encode($this->employeeService->getEmp($id));
+
+    }
+
+    public function updateEmp(EmpBindingModel $empBindingModel) {
 
     }
 

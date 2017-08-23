@@ -17,4 +17,6 @@ interface EmployeesServiceInterface
     public function getList();
 
     public function addEmp(EmpBindingModel $model);
+
+    public function getEmp($id);
 }
