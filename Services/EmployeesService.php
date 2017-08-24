@@ -24,7 +24,16 @@ class EmployeesService implements EmployeesServiceInterface
 
     public function getList()
     {
-        $query = "SELECT * FROM employees";
+        $query = "SELECT 
+                  id, 
+                  ext_id AS extId,
+                  first_name AS firstName,
+                  last_name AS lastName,
+                  position,
+                  team,
+                  start_date AS dateStart,
+                  birthday 
+                  FROM employees";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute();
@@ -35,7 +44,15 @@ class EmployeesService implements EmployeesServiceInterface
     }
 
     public function getEmp($id) {
-        $query = "SELECT * FROM employees WHERE id = ?";
+        $query = "SELECT 
+                  ext_id AS extId,
+                  first_name AS firstName,
+                  last_name AS lastName,
+                  position,
+                  team,
+                  start_date AS dateStart,
+                  birthday 
+                  FROM employees WHERE id = ?";
 
         $stmt = $this->db->prepare($query);
         $stmt->execute([$id]);
@@ -52,7 +69,7 @@ class EmployeesService implements EmployeesServiceInterface
                   first_name,
                   last_name,
                   position,
-                  teamm,
+                  team,
                   start_date,
                   birthday
                   )
